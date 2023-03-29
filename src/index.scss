@@ -1,0 +1,15 @@
+@use "./assets/styles/base";
+
+@use "./layouts/MainLayout";
+@use "./layouts/AboutMeLayout";
+
+@use "./components/Header";
+@use "./components/Footer";
+@use "./components/Menu";
+@use "./components/SnakeGame";
+@use "./components/SidebarCategories";
+@use "./components/Dropdown";
+@use "./components/DropdownItem";
+
+@use "./views/Home";
+@use "./views/AboutMe";

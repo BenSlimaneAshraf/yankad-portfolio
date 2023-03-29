@@ -1,0 +1,119 @@
+.home__main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  & > * {
+    user-select: none;
+  }
+  & > .home__container {
+    // max-width: 1159px;
+    margin: 0 auto;
+    display: flex;
+    gap: 110px;
+    @media only screen and (max-width: 1450px) {
+      flex-direction: column;
+      gap: 80px;
+      padding-top: 80px;
+      padding-bottom: 100px;
+    }
+    @media only screen and (max-width: 999px) {
+      padding: 0 32px;
+      padding-top: 50px;
+      padding-bottom: 100px;
+    }
+    @media only screen and (max-width: 586px) {
+      padding: 0 32px;
+    }
+    & > section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 81px;
+      & > article {
+        display: flex;
+        flex-direction: column;
+        & > .user__welcome {
+          font-size: 18px;
+          color: #ffffff;
+        }
+        & > .user__name {
+          font-size: 62px;
+          color: #ffffff;
+        }
+        & > .user__position {
+          display: flex;
+          align-items: center;
+          & > i {
+            color: #4d5bce;
+            font-size: 32px;
+            margin-left: -10px;
+            @media only screen and (max-width: 999px) {
+              font-size: 20px;
+              color: #43d9ad;
+            }
+          }
+          & > .user__position__title {
+            font-size: 32px;
+            color: #4d5bce;
+            @media only screen and (max-width: 999px) {
+              font-size: 20px;
+              color: #43d9ad;
+            }
+          }
+        }
+      }
+      & > section {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        & > .github__comment {
+          font-size: 16px;
+          color: #607b96;
+          @media only screen and (max-width: 999px) {
+            font-size: 14px;
+          }
+        }
+        & > .github__link {
+          font-size: 16px;
+          display: flex;
+          gap: 12px;
+          flex-wrap: wrap;
+          @media only screen and (max-width: 999px) {
+            font-size: 14px;
+          }
+          & > .github__const {
+            color: #4d5bce;
+          }
+          & > .github__variable {
+            color: #43d9ad;
+          }
+          & > .github__same {
+            color: #ffffff;
+          }
+          & > .github__url {
+            color: #e99287;
+          }
+        }
+      }
+    }
+  }
+  &::after {
+    content: "";
+    background: url("../../assets/images/background-blurs.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    @media only screen and (max-width: 999px) {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+}

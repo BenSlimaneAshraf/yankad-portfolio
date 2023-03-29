@@ -1,0 +1,57 @@
+.app__footer {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #1e2d3d;
+  background: #011627;
+  z-index: 12;
+  & > section {
+    display: flex;
+    & > .app__logo {
+      padding: 15px 22px;
+    }
+    & > .app__menu {
+      display: flex;
+      list-style: none;
+      & > :first-child {
+        border-left: 1px solid #1e2d3d;
+      }
+
+      & > li {
+        padding: 15px 32px;
+        border-right: 1px solid #1e2d3d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        transition: all 300ms ease;
+        cursor: pointer;
+        &.icon {
+          padding: 15px;
+        }
+        &:hover {
+          color: #ffffff;
+        }
+        &.github__link {
+          @media only screen and (max-width: 999px) {
+            padding: 15px;
+            border-left: none;
+          }
+        }
+        & > .github__username {
+          @media only screen and (max-width: 999px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 999px) {
+    justify-content: flex-start;
+  }
+  & > :first-child {
+    @media only screen and (max-width: 999px) {
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+  }
+}

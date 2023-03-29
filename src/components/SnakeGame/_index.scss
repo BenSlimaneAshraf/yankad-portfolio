@@ -1,0 +1,399 @@
+@use "./components/GameOver";
+@use "./components/StartGameButton";
+
+.game__layout {
+  display: flex;
+  gap: 24px;
+  padding: 32px;
+  border: 1px solid #0c1616;
+  box-shadow: inset 0 2px 0 rgb(255 255 255 / 30%);
+  border-radius: 8px;
+  position: relative;
+
+  & > .game__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    & > .game__instructions {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      background: rgb(1 20 35 / 19%);
+      border-radius: 8px;
+      padding: 14px;
+
+      & > .game__comment {
+        color: #ffffff;
+      }
+      & > .game__keys {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        & > :first-child {
+          margin-top: 12px;
+        }
+        & > div {
+          display: flex;
+          gap: 4px;
+          justify-content: center;
+          align-items: center;
+          & > .game__key {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 49px;
+            height: 28px;
+            background: #010c15;
+            border-radius: 8px;
+            border: 1px solid #1e2d3d;
+            color: #ffffff;
+            & > i {
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
+    & > .game__scores {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 14px;
+
+      & > .game__comment {
+        color: #ffffff;
+      }
+      & > .game__points__container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        & > .game__points {
+          display: flex;
+          gap: 20px;
+          & > .game__point {
+            position: relative;
+            width: 8px;
+            height: 8px;
+            background: #43d9ad;
+            border-radius: 60px;
+            opacity: 0.3;
+            &.active {
+              opacity: 1;
+            }
+            &::after {
+              content: "";
+              width: 14px;
+              height: 14px;
+              opacity: 0.2;
+              background: #43d9ad;
+              position: absolute;
+              border-radius: 60px;
+              margin-left: -3px;
+              margin-top: -3px;
+            }
+            &::before {
+              content: "";
+              width: 20px;
+              height: 20px;
+              opacity: 0.1;
+              background: #43d9ad;
+              position: absolute;
+              border-radius: 60px;
+              margin-left: -6px;
+              margin-top: -6px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // filter: blur(64px);
+    border-radius: 8px;
+    z-index: -1;
+    background: rgb(23, 85, 83);
+    background: -moz-linear-gradient(
+      156deg,
+      rgba(23, 85, 83, 1) 0%,
+      rgba(67, 217, 173, 0.13) 100%
+    );
+    background: -webkit-linear-gradient(
+      156deg,
+      rgba(23, 85, 83, 1) 0%,
+      rgba(67, 217, 173, 0.13) 100%
+    );
+    background: linear-gradient(
+      156deg,
+      rgba(23, 85, 83, 1) 0%,
+      rgba(67, 217, 173, 0.13) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#175553",endColorstr="#43d9ad",GradientType=1);
+  }
+  & > .layout__scrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 60px;
+    border: 1px solid #114944;
+    box-shadow: 2px 2px 4px #0d4341;
+    box-shadow: inset 0 1px 2px #1f8177;
+    position: absolute;
+    margin: 8px;
+
+    background: rgb(33, 125, 122);
+    background: -moz-radial-gradient(
+      circle,
+      rgba(33, 125, 122, 1) 20%,
+      rgba(17, 75, 74, 1) 100%
+    );
+    background: -webkit-radial-gradient(
+      circle,
+      rgba(33, 125, 122, 1) 20%,
+      rgba(17, 75, 74, 1) 100%
+    );
+    background: radial-gradient(
+      circle,
+      rgba(33, 125, 122, 1) 20%,
+      rgba(17, 75, 74, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#217d7a",endColorstr="#114b4a",GradientType=1);
+
+    &.top__left {
+      top: 0;
+      left: 0;
+    }
+    &.top__right {
+      top: 0;
+      right: 0;
+    }
+    &.bottom__left {
+      bottom: 0;
+      left: 0;
+    }
+    &.bottom__right {
+      bottom: 0;
+      right: 0;
+    }
+    & > i {
+      color: #114944;
+    }
+  }
+}
+
+.snake__board {
+  background: rgb(6 36 49 / 84%);
+  border-radius: 8px;
+  box-shadow: inset 1px 5px 11px 0 rgb(2 18 27 / 74%);
+  position: relative;
+  overflow: hidden;
+  & > .game__section {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    & > .snake__body {
+      position: absolute;
+
+      & > .snake__part {
+        position: absolute;
+        background: #43d9ad;
+      }
+      &.left > :first-child {
+        border-top-left-radius: 60px;
+        border-bottom-left-radius: 60px;
+      }
+      &.up > :first-child {
+        border-top-left-radius: 60px;
+        border-top-right-radius: 60px;
+      }
+      &.right > :first-child {
+        border-top-right-radius: 60px;
+        border-bottom-right-radius: 60px;
+      }
+      &.down > :first-child {
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+      }
+
+      &.left > :nth-last-child(5) {
+        background: linear-gradient(
+          to right,
+          rgb(67 217 173 / 100%),
+          rgb(67 217 173 / 80%)
+        );
+      }
+      &.left > :nth-last-child(4) {
+        background: linear-gradient(
+          to right,
+          rgb(67 217 173 / 80%),
+          rgb(67 217 173 / 60%)
+        );
+      }
+      &.left > :nth-last-child(3) {
+        background: linear-gradient(
+          to right,
+          rgb(67 217 173 / 60%),
+          rgb(67 217 173 / 40%)
+        );
+      }
+      &.left > :nth-last-child(2) {
+        background: linear-gradient(
+          to right,
+          rgb(67 217 173 / 40%),
+          rgb(67 217 173 / 20%)
+        );
+      }
+      &.left > :last-child {
+        background: linear-gradient(
+          to right,
+          rgb(67 217 173 / 20%),
+          rgb(67 217 173 / 0%)
+        );
+      }
+
+      &.up > :nth-last-child(5) {
+        background: linear-gradient(
+          to bottom,
+          rgb(67 217 173 / 100%),
+          rgb(67 217 173 / 80%)
+        );
+      }
+      &.up > :nth-last-child(4) {
+        background: linear-gradient(
+          to bottom,
+          rgb(67 217 173 / 80%),
+          rgb(67 217 173 / 60%)
+        );
+      }
+      &.up > :nth-last-child(3) {
+        background: linear-gradient(
+          to bottom,
+          rgb(67 217 173 / 60%),
+          rgb(67 217 173 / 40%)
+        );
+      }
+      &.up > :nth-last-child(2) {
+        background: linear-gradient(
+          to bottom,
+          rgb(67 217 173 / 40%),
+          rgb(67 217 173 / 20%)
+        );
+      }
+      &.up > :last-child {
+        background: linear-gradient(
+          to bottom,
+          rgb(67 217 173 / 20%),
+          rgb(67 217 173 / 0%)
+        );
+      }
+
+      &.right > :nth-last-child(5) {
+        background: linear-gradient(
+          to left,
+          rgb(67 217 173 / 100%),
+          rgb(67 217 173 / 80%)
+        );
+      }
+      &.right > :nth-last-child(4) {
+        background: linear-gradient(
+          to left,
+          rgb(67 217 173 / 80%),
+          rgb(67 217 173 / 60%)
+        );
+      }
+      &.right > :nth-last-child(3) {
+        background: linear-gradient(
+          to left,
+          rgb(67 217 173 / 60%),
+          rgb(67 217 173 / 40%)
+        );
+      }
+      &.right > :nth-last-child(2) {
+        background: linear-gradient(
+          to left,
+          rgb(67 217 173 / 40%),
+          rgb(67 217 173 / 20%)
+        );
+      }
+      &.right > :last-child {
+        background: linear-gradient(
+          to left,
+          rgb(67 217 173 / 20%),
+          rgb(67 217 173 / 0%)
+        );
+      }
+
+      &.down > :nth-last-child(5) {
+        background: linear-gradient(
+          to top,
+          rgb(67 217 173 / 100%),
+          rgb(67 217 173 / 80%)
+        );
+      }
+      &.down > :nth-last-child(4) {
+        background: linear-gradient(
+          to top,
+          rgb(67 217 173 / 80%),
+          rgb(67 217 173 / 60%)
+        );
+      }
+      &.down > :nth-last-child(3) {
+        background: linear-gradient(
+          to top,
+          rgb(67 217 173 / 60%),
+          rgb(67 217 173 / 40%)
+        );
+      }
+      &.down > :nth-last-child(2) {
+        background: linear-gradient(
+          to top,
+          rgb(67 217 173 / 40%),
+          rgb(67 217 173 / 20%)
+        );
+      }
+      &.down > :last-child {
+        background: linear-gradient(
+          to top,
+          rgb(67 217 173 / 20%),
+          rgb(67 217 173 / 0%)
+        );
+      }
+    }
+    & > .game__point {
+      position: absolute;
+      background: #43d9ad;
+      border-radius: 60px;
+      &::after {
+        content: "";
+        width: 14px;
+        height: 14px;
+        opacity: 0.2;
+        background: #43d9ad;
+        position: absolute;
+        border-radius: 60px;
+        margin-left: -3px;
+        margin-top: -3px;
+      }
+      &::before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        opacity: 0.1;
+        background: #43d9ad;
+        position: absolute;
+        border-radius: 60px;
+        margin-left: -6px;
+        margin-top: -6px;
+      }
+    }
+  }
+}

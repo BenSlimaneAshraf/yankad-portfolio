@@ -1,0 +1,24 @@
+.sc_categories__main {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #1e2d3d;
+  gap: 12px;
+  padding: 12px 0;
+  & > a {
+    display: flex;
+    padding: 8px 24px;
+    & > svg {
+      opacity: 0.4;
+      transition: all 300ms ease;
+      & .shape {
+        fill: #607b96;
+      }
+    }
+    &:hover,
+    &.active {
+      & > svg {
+        opacity: 1;
+      }
+    }
+  }
+}
