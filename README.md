@@ -27,11 +27,11 @@ To use this repository, simply clone the repository and run `npm install` to ins
 
 ## 🔗 Links
 
-<base target="_blank">[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ashrafbenslimane.netlify.app/)
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ashrafbenslimane.netlify.app/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ashrafbenslimane/)
 
 ## ♻️ License
 
 This project is licensed under the MIT License.
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)<base target="_blank">
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
