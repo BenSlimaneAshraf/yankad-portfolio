@@ -2,7 +2,7 @@
 
 This is my personal portfolio website built with ReactJS and designed by Yanka. The website showcases my skills, projects, and experiences to potential clients and employers.
 
-## Features
+## 🎯 Features
 
 - Responsive design for optimal viewing on desktop, tablet, and mobile devices.
 - Clean and modern design that highlights my work and skills.
@@ -10,27 +10,27 @@ This is my personal portfolio website built with ReactJS and designed by Yanka. 
 - Dynamic content that can be easily updated as my skills and projects evolve.
 - Integration with my GitHub and LinkedIn profiles for easy access to additional information.
 
-## Technologies
+## ⚙️ Technologies
 
 - ReactJS
 - HTML
 - CSS
 - JavaScript
 
-## Credits
+## 💌 Credits
 
 Design by [Yanka](https://dribbble.com/YankaD)
 
-## Usage
+## ✒️ Usage
 
 To use this repository, simply clone the repository and run `npm install` to install the necessary dependencies. You can then run `npm start` to start the development server and view the website locally.
 
-## Links
+## 🔗 Links
 
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ashrafbenslimane.netlify.app/)
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ashrafbenslimane/)
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ashrafbenslimane.netlify.app/){:target="_blank"}
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ashrafbenslimane/){:target="_blank"}
 
-## License
+## ♻️ License
 
 This project is licensed under the MIT License.
 
