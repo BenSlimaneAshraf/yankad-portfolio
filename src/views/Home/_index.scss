@@ -93,6 +93,11 @@
           }
           & > .github__url {
             color: #e99287;
+            transition: all 300ms ease;
+            cursor: pointer;
+            &:hover {
+              color: #fea55f;
+            }
           }
         }
       }
