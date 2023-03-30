@@ -9,6 +9,11 @@
     & > .app__logo {
       padding: 17px 22px;
       padding-right: 110px;
+      transition: all 300ms ease;
+      cursor: pointer;
+      &:hover {
+        color: #ffffff;
+      }
       @media only screen and (max-width: 999px) {
         padding-right: 22px;
       }
@@ -52,6 +57,13 @@
           @media only screen and (min-width: 1000px) {
             display: none;
           }
+        }
+      }
+      & > li > a {
+        transition: all 300ms ease;
+        cursor: pointer;
+        &:hover {
+          color: #ffffff;
         }
       }
       & > *:not(.app__hamburger) {

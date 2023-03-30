@@ -27,11 +27,25 @@
         cursor: pointer;
         &.icon {
           padding: 15px;
+          & > a > * {
+            transition: all 300ms ease;
+            cursor: pointer;
+          }
+          &:hover > a > * {
+            color: #ffffff;
+          }
         }
         &:hover {
           color: #ffffff;
         }
         &.github__link {
+          & > * {
+            transition: all 300ms ease;
+            cursor: pointer;
+          }
+          &:hover > * {
+            color: #ffffff;
+          }
           @media only screen and (max-width: 999px) {
             padding: 15px;
             border-left: none;
